@@ -41,7 +41,6 @@ def summarize_email(text, n_sentences=4):
     return summary
 
 
-# Example usage
 email_text = """
 The Statue of Liberty, a hollow colossus composed of thinly pounded copper sheets over a steel framework, stands on an island at the entrance to New York Harbor. It was designed by sculptor Frédéric Bartholdi in collaboration with engineer Gustave Eiffel, and was a gift from France on the centenary of American independence in 1876. Its design and construction were recognized at the time as one of the greatest technical achievements of the 19th century and hailed as a bridge between art and engineering. Atop its pedestal (designed by American architect Richard Morris Hunt), the Statue has welcomed millions of immigrants to the United States since it was dedicated in 1886.
 

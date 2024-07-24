@@ -4,7 +4,7 @@ from string import punctuation
 from heapq import nlargest
 
 
-def summarize_email(text, n_sentences=4):
+def summarize_email(text, n_sentences=2):
     nlp = spacy.load("en_core_web_sm")
 
     doc = nlp(text)
@@ -42,9 +42,6 @@ def summarize_email(text, n_sentences=4):
 
 
 email_text = """
-The Statue of Liberty, a hollow colossus composed of thinly pounded copper sheets over a steel framework, stands on an island at the entrance to New York Harbor. It was designed by sculptor Frédéric Bartholdi in collaboration with engineer Gustave Eiffel, and was a gift from France on the centenary of American independence in 1876. Its design and construction were recognized at the time as one of the greatest technical achievements of the 19th century and hailed as a bridge between art and engineering. Atop its pedestal (designed by American architect Richard Morris Hunt), the Statue has welcomed millions of immigrants to the United States since it was dedicated in 1886.
-
-The Statue is a masterpiece of colossal statuary, which found renewed expression in the 19th century, after the tradition of those of antiquity, but with intimations of Art Nouveau. Drawing on classical elements and iconography, it expressed modern aspirations. The interior iron framework is a formidable and intricate piece of construction, a harbinger of the future in engineering, architecture, and art, including the extensive use of concrete in the base, the flexible curtain-wall type of construction that supports the skin, and the use of electricity to light the torch. Édouard René de Laboulaye collaborated with Bartholdi for the concept of the Statue to embody international friendship, peace, and progress, and specifically the historical alliance between France and the United States. Its financing by international subscription was also significant. Highly potent symbolic elements of the design include the United States Declaration of Independence, which the Statue holds in her left hand, as well as the broken shackles from which she steps. 
-
+There are many techniques available to generate extractive summarization to keep it simple, I will be using an unsupervised learning approach to find the sentences similarity and rank them. Summarization can be defined as a task of producing a concise and fluent summary while preserving key information and overall meaning. One benefit of this will be, you don’t need to train and build a model prior start using it for your project. It’s good to understand Cosine similarity to make the best use of the code you are going to see. Cosine similarity is a measure of similarity between two non-zero vectors of an inner product space that measures the cosine of the angle between them. Its measures cosine of the angle between vectors. The angle will be 0 if sentences are similar.
 """
 print(summarize_email(email_text))

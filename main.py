@@ -6,6 +6,13 @@ from heapq import nlargest
 def load_nlp_model():
     return spacy.load("en_core_web_sm")
 
+def remove_introduction(text):
+    comma_index = text.find(',')
+    if comma_index != -1:
+        return text[comma_index + 1:].lstrip()
+    else:
+        return text
+
 def compute_word_frequencies(doc):
     word_frequencies = {}
     for word in doc:
@@ -30,6 +37,8 @@ def get_top_sentences(sentence_scores, n_sentences):
     return sorted(summarized_sentences, key=lambda s: s.start)
 
 def summarize_email(text, n_sentences=2):
+    text = remove_introduction(text)
+
     nlp = load_nlp_model()
     doc = nlp(text)
 
@@ -40,6 +49,7 @@ def summarize_email(text, n_sentences=2):
 
     summary = ' '.join([sent.text for sent in top_sentences])
     return summary
+
 
 # Example usage
 if __name__ == "__main__":
